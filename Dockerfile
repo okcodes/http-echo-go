@@ -20,5 +20,9 @@ EXPOSE 8080
 
 CMD ["/server"]
 
-# docker build --build-arg APP_VERSION=0.0.0 --build-arg APP_BUILD=0.0.0-build -t http-echo-go:latest -t http-echo-go:0.0.0 .
+# docker build --build-arg APP_VERSION=0.0.0 --build-arg APP_BUILD=0.0.0-build -t okcodes/http-echo-go:latest -t okcodes/http-echo-go:0.0.0 .
 # docker run -it --rm -p 8080:8080 -e PORT=8080 http-echo-go
+
+# docker login -u okcodes
+# docker push okcodes/http-echo-go:latest
+# docker push okcodes/http-echo-go:0.0.0
