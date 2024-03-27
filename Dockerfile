@@ -20,13 +20,13 @@ EXPOSE 8080
 
 CMD ["/server"]
 
-# docker build --build-arg APP_VERSION=0.1.0 --build-arg APP_BUILD=0.1.0-build -t http-echo-go -t okcodes/http-echo-go:latest -t okcodes/http-echo-go:0.1.0 .
+# docker build --build-arg APP_VERSION=0.2.0 --build-arg APP_BUILD=0.2.0-build -t http-echo-go -t okcodes/http-echo-go:latest -t okcodes/http-echo-go:0.2.0 .
 
 # Cross-Architexture Compilation
-# docker buildx build --platform "linux/arm64,linux/amd64,linux/arm64/v8" --build-arg APP_VERSION=0.1.0 --build-arg APP_BUILD=0.1.0-build -t http-echo-go -t okcodes/http-echo-go:latest -t okcodes/http-echo-go:0.1.0 .
+# docker buildx build --platform "linux/arm64,linux/amd64,linux/arm64/v8" --build-arg APP_VERSION=0.2.0 --build-arg APP_BUILD=0.2.0-build -t http-echo-go -t okcodes/http-echo-go:latest -t okcodes/http-echo-go:0.2.0 .
 
 # docker run -it --rm -p 8080:8080 -e PORT=8080 http-echo-go
 
 # docker login -u okcodes
 # docker push okcodes/http-echo-go:latest
-# docker push okcodes/http-echo-go:0.1.0
+# docker push okcodes/http-echo-go:0.2.0
