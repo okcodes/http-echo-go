@@ -12,6 +12,7 @@ type response struct {
 	Name    string `json:"name"`
 	Version string `json:"version"`
 	Build   string `json:"build"`
+	Ip      string `json:"ip"`
 }
 
 func main() {
@@ -30,6 +31,7 @@ func main() {
 			Name:    "echo-go",
 			Version: version,
 			Build:   build,
+			Ip:      r.RemoteAddr,
 		}
 
 		w.Header().Set("Content-Type", "application/json")
