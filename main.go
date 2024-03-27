@@ -9,10 +9,11 @@ import (
 )
 
 type response struct {
-	Name    string `json:"name"`
-	Version string `json:"version"`
-	Build   string `json:"build"`
-	Ip      string `json:"ip"`
+	Name    string              `json:"name"`
+	Version string              `json:"version"`
+	Build   string              `json:"build"`
+	Ip      string              `json:"ip"`
+	Headers map[string][]string `json:"headers"`
 }
 
 func main() {
@@ -32,6 +33,12 @@ func main() {
 			Version: version,
 			Build:   build,
 			Ip:      r.RemoteAddr,
+			Headers: make(map[string][]string),
+		}
+
+		// Loop through all headers and add them to the response
+		for name, values := range r.Header {
+			resp.Headers[name] = values
 		}
 
 		w.Header().Set("Content-Type", "application/json")
